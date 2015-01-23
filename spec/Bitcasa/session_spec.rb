@@ -1,23 +1,16 @@
 # -*- encoding: utf-8 -*-
 
 require './spec_helper'
+require './factories'
 require_relative '../../lib/Bitcasa'
 require_relative '../../lib/Bitcasa/session'
 
 describe Bitcasa::Session do
-  
-  clientid = "IT-WwqfXz-16tFQf7TKr5_eMJspiEGMuPpESMnay3nI"
-  secret = "8CcbXGivxz351qmy7PDPbjcIMbF5w7EDuHzbV9lYO3xTB9HrR1yNK_SV7qdhOMBHpzi8ZYKL5gsa8ildS4ehYQ"
-  host = "https://jsf36yfysd.cloudfs.io"
-  username = "sheetal.jadhav@izeltech.com"
-  password = "Dh@anajay786"
+ 
   # TODO: auto-generated
   describe '#new' do
-    it 'works' do
-      clientid = double('clientid')
-      secret = double('secret')
-      host = double('host')
-      result = Bitcasa::Session.new(clientid, secret, host)
+    it 'Should give new session' do
+      result = FactoryGirl.build(clientid, secret, host)
       expect(result).not_to be_nil
     end
   end
@@ -25,12 +18,12 @@ describe Bitcasa::Session do
   # TODO: auto-generated
   describe '#authenticate' do
     it 'works' do
-      clientid = double('clientid')
-      secret = double('secret')
-      host = double('host')
+      clientid = "IT-WwqfXz-16tFQf7TKr5_eMJspiEGMuPpESMnay3nI"
+      secret = "8CcbXGivxz351qmy7PDPbjcIMbF5w7EDuHzbV9lYO3xTB9HrR1yNK_SV7qdhOMBHpzi8ZYKL5gsa8ildS4ehYQ"
+      host = "https://jsf36yfysd.cloudfs.io"
       session = Bitcasa::Session.new(clientid, secret, host)
-      username = double('username')
-      password = double('password')
+      username = "sheetal.jadahv@izeltech.com"
+      password = "Dh@nanjay786"
       result = session.authenticate(username, password)
       expect(result).not_to be_nil
     end

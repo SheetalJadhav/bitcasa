@@ -8,9 +8,9 @@ describe Bitcasa::Client do
   # TODO: auto-generated
   describe '#new' do
     it 'works' do
-      clientid = double('clientid')
-      secret = double('secret')
-      host = double('host')
+      clientid = 'clientid'
+      secret = 'secret'
+      host = 'host'
       result = Bitcasa::Client.new(clientid, secret, host)
       expect(result).not_to be_nil
     end
@@ -47,8 +47,8 @@ describe Bitcasa::Client do
       secret = double('secret')
       host = double('host')
       client = Bitcasa::Client.new(clientid, secret, host)
-      username = double('username')
-      password = double('password')
+      username = "sheetal.jadahv@izeltech.com"
+      password = "Dh@nanjay786"
       result = client.authenticate(username, password)
       expect(result).not_to be_nil
     end

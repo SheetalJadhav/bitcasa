@@ -31,4 +31,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry-nav"
   spec.add_development_dependency "coveralls"
   spec.add_development_dependency "rspec-kickstarter"
+  spec.add_development_dependency "factory_girl"
 end

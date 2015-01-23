@@ -23,305 +23,16 @@
     <favorites_list name="Bitcasa" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="GemDependency/#Bitcasa" pinned="false" current-in-tab="true">
-        <entry file="uml://GemDependency/#Bitcasa">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>GemDependency</ID>
-              <OriginalElement>#Bitcasa</OriginalElement>
-              <nodes>
-                <node x="478.49999999999994" y="164.0">celluloid</node>
-                <node x="1293.75" y="164.0">coderay</node>
-                <node x="482.99999999999994" y="0.0">hitimes</node>
-                <node x="1348.1859737484733" y="430.0">httpclient</node>
-                <node x="12.5" y="246.0">rspec-core</node>
-                <node x="1295.25" y="522.0">#Bitcasa</node>
-                <node x="497.28124999999994" y="430.0">guard-rspec</node>
-                <node x="98.71733821733824" y="164.0">rspec-support</node>
-                <node x="0.0" y="348.0">terminal-notifier</node>
-                <node x="1405.75" y="348.0">pry-remote</node>
-                <node x="169.0" y="348.0">rspec</node>
-                <node x="490.7600732600734" y="246.0">formatador</node>
-                <node x="881.125" y="348.0">guard</node>
-                <node x="490.28124999999994" y="348.0">guard-compat</node>
-                <node x="1444.0" y="164.0">slop</node>
-                <node x="373.49999999999994" y="164.0">diff-lcs</node>
-                <node x="799.8850732600733" y="430.0">multi_json</node>
-                <node x="624.7600732600733" y="246.0">listen</node>
-                <node x="746.0" y="82.0">ffi</node>
-                <node x="287.5" y="246.0">rspec-expectations</node>
-                <node x="485.99999999999994" y="82.0">timers</node>
-                <node x="932.125" y="246.0">notiffany</node>
-                <node x="1309.6859737484733" y="246.0">pry</node>
-                <node x="143.5" y="246.0">rspec-mocks</node>
-                <node x="1018.75" y="164.0">shellany</node>
-                <node x="82.875" y="430.0">rspec-nc</node>
-                <node x="1049.125" y="246.0">thor</node>
-                <node x="1294.6859737484733" y="348.0">pry-nav</node>
-                <node x="1129.75" y="164.0">method_source</node>
-                <node x="1473.25" y="430.0">bundler</node>
-                <node x="839.5" y="164.0">nenv</node>
-                <node x="593.5" y="164.0">rb-fsevent</node>
-                <node x="801.125" y="246.0">lumberjack</node>
-                <node x="721.5" y="164.0">rb-inotify</node>
-              </nodes>
-              <notes />
-              <edges>
-                <edge source="pry-remote" target="pry">
-                  <point x="-28.5" y="-16.0" />
-                  <point x="1434.25" y="328.0" />
-                  <point x="1356.3526404151403" y="328.0" />
-                  <point x="18.666666666666742" y="16.0" />
-                </edge>
-                <edge source="#Bitcasa" target="pry-remote">
-                  <point x="24.85714285714289" y="-16.0" />
-                  <point x="1363.607142857143" y="492.0" />
-                  <point x="1462.75" y="492.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="rspec-mocks" target="rspec-support">
-                  <point x="0.0" y="-16.0" />
-                  <point x="205.5" y="226.0" />
-                  <point x="165.71733821733824" y="226.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="listen" target="celluloid">
-                  <point x="-24.0" y="-16.0" />
-                  <point x="636.7600732600733" y="226.0" />
-                  <point x="525.0" y="226.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="celluloid" target="timers">
-                  <point x="0.0" y="-16.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="rspec-nc" target="rspec">
-                  <point x="24.0" y="-16.0" />
-                  <point x="154.875" y="405.0" />
-                  <point x="187.25" y="405.0" />
-                  <point x="-18.25" y="16.0" />
-                </edge>
-                <edge source="rspec" target="rspec-mocks">
-                  <point x="0.0" y="-16.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="#Bitcasa" target="bundler">
-                  <point x="37.28571428571422" y="-16.0" />
-                  <point x="1376.0357142857142" y="502.0" />
-                  <point x="1517.75" y="502.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="pry" target="coderay">
-                  <point x="0.0" y="-16.0" />
-                  <point x="1337.6859737484733" y="226.0" />
-                  <point x="1338.75" y="226.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="rspec-expectations" target="rspec-support">
-                  <point x="-42.5" y="-16.0" />
-                  <point x="330.0" y="216.0" />
-                  <point x="210.38400488400487" y="216.0" />
-                  <point x="44.66666666666666" y="16.0" />
-                </edge>
-                <edge source="rspec" target="rspec-expectations">
-                  <point x="24.333333333333343" y="-16.0" />
-                  <point x="229.83333333333337" y="328.0" />
-                  <point x="372.5" y="328.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="rspec-expectations" target="diff-lcs">
-                  <point x="42.5" y="-16.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="guard" target="thor">
-                  <point x="14.0625" y="-16.0" />
-                  <point x="932.6875" y="308.0" />
-                  <point x="1081.125" y="308.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="#Bitcasa" target="httpclient">
-                  <point x="12.428571428571331" y="-16.0" />
-                  <point x="1351.1785714285713" y="482.0" />
-                  <point x="1399.6859737484733" y="482.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="rspec" target="rspec-core">
-                  <point x="-24.333333333333314" y="-16.0" />
-                  <point x="181.16666666666674" y="328.0" />
-                  <point x="68.0" y="328.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="pry" target="slop">
-                  <point x="18.666666666666742" y="-16.0" />
-                  <point x="1356.3526404151403" y="226.0" />
-                  <point x="1459.75" y="226.0" />
-                  <point x="-15.75" y="16.0" />
-                </edge>
-                <edge source="#Bitcasa" target="guard-rspec">
-                  <point x="-24.85714285714289" y="-16.0" />
-                  <point x="1313.892857142857" y="492.0" />
-                  <point x="557.28125" y="492.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="guard-rspec" target="guard">
-                  <point x="40.0" y="-16.0" />
-                  <point x="597.28125" y="405.0" />
-                  <point x="918.625" y="405.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="guard-rspec" target="rspec">
-                  <point x="-40.0" y="-16.0" />
-                  <point x="517.28125" y="405.0" />
-                  <point x="223.75" y="405.0" />
-                  <point x="18.25" y="16.0" />
-                </edge>
-                <edge source="guard" target="listen">
-                  <point x="-23.4375" y="-16.0" />
-                  <point x="895.1875" y="318.0" />
-                  <point x="660.7600732600733" y="318.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="notiffany" target="shellany">
-                  <point x="24.25" y="-16.0" />
-                  <point x="1004.875" y="226.0" />
-                  <point x="1041.5" y="226.0" />
-                  <point x="-22.75" y="16.0" />
-                </edge>
-                <edge source="guard" target="formatador">
-                  <point x="-32.8125" y="-16.0" />
-                  <point x="885.8125" y="328.0" />
-                  <point x="547.7600732600733" y="328.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="guard" target="nenv">
-                  <point x="-14.0625" y="-16.0" />
-                  <point x="904.5625" y="308.0" />
-                  <point x="790.625" y="308.0" />
-                  <point x="790.625" y="226.0" />
-                  <point x="856.5" y="226.0" />
-                  <point x="-17.0" y="16.0" />
-                </edge>
-                <edge source="listen" target="rb-inotify">
-                  <point x="24.0" y="-16.0" />
-                  <point x="684.7600732600733" y="226.0" />
-                  <point x="770.5" y="226.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="#Bitcasa" target="rspec-nc">
-                  <point x="-37.28571428571422" y="-16.0" />
-                  <point x="1301.4642857142858" y="502.0" />
-                  <point x="130.875" y="502.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="#Bitcasa" target="pry-nav">
-                  <point x="0.0" y="-16.0" />
-                  <point x="1338.75" y="502.0" />
-                  <point x="1337.6859737484733" y="502.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="rspec-nc" target="terminal-notifier">
-                  <point x="-24.0" y="-16.0" />
-                  <point x="106.875" y="405.0" />
-                  <point x="74.5" y="405.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="guard" target="notiffany">
-                  <point x="4.6875" y="-16.0" />
-                  <point x="923.3125" y="298.0" />
-                  <point x="980.625" y="298.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="guard" target="lumberjack">
-                  <point x="-4.6875" y="-16.0" />
-                  <point x="913.9375" y="298.0" />
-                  <point x="856.625" y="298.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="guard" target="shellany">
-                  <point x="23.4375" y="-16.0" />
-                  <point x="942.0625" y="318.0" />
-                  <point x="1123.625" y="318.0" />
-                  <point x="1123.625" y="226.0" />
-                  <point x="1087.0" y="226.0" />
-                  <point x="22.75" y="16.0" />
-                </edge>
-                <edge source="pry" target="method_source">
-                  <point x="-18.666666666666742" y="-16.0" />
-                  <point x="1319.0193070818068" y="226.0" />
-                  <point x="1201.75" y="226.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="rb-inotify" target="ffi">
-                  <point x="0.0" y="-16.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="pry-nav" target="pry">
-                  <point x="0.0" y="-16.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="rspec-core" target="rspec-support">
-                  <point x="0.0" y="-16.0" />
-                  <point x="68.0" y="226.0" />
-                  <point x="121.05067155067161" y="226.0" />
-                  <point x="-44.66666666666666" y="16.0" />
-                </edge>
-                <edge source="timers" target="hitimes">
-                  <point x="0.0" y="-16.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="guard" target="pry">
-                  <point x="32.8125" y="-16.0" />
-                  <point x="951.4375" y="328.0" />
-                  <point x="1319.0193070818068" y="328.0" />
-                  <point x="-18.666666666666742" y="16.0" />
-                </edge>
-                <edge source="guard-rspec" target="guard-compat">
-                  <point x="0.0" y="-16.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="listen" target="rb-fsevent">
-                  <point x="0.0" y="-16.0" />
-                  <point x="660.7600732600733" y="226.0" />
-                  <point x="647.5" y="226.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="#Bitcasa" target="multi_json">
-                  <point x="-12.428571428571331" y="-16.0" />
-                  <point x="1326.3214285714287" y="482.0" />
-                  <point x="851.8850732600733" y="482.0" />
-                  <point x="0.0" y="16.0" />
-                </edge>
-                <edge source="pry-remote" target="slop">
-                  <point x="28.5" y="-16.0" />
-                  <point x="15.75" y="16.0" />
-                </edge>
-                <edge source="notiffany" target="nenv">
-                  <point x="-24.25" y="-16.0" />
-                  <point x="956.375" y="226.0" />
-                  <point x="890.5" y="226.0" />
-                  <point x="17.0" y="16.0" />
-                </edge>
-              </edges>
-              <settings layout="Hierarchic Group" zoom="0.799115603284902" x="781.5" y="417.2620553359684" />
-              <SelectedNodes>
-                <node>terminal-notifier</node>
-              </SelectedNodes>
-              <Categories />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="65" />
-    <option name="y" value="-4" />
+    <option name="y" value="24" />
     <option name="width" value="1615" />
-    <option name="height" value="1054" />
+    <option name="height" value="1026" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -406,6 +117,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
+    <property name="options.lastSelected" value="org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager" selected="Ruby.account">
     <configuration default="false" name="account" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
@@ -544,8 +258,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1615" height="1054" extended-state="6" />
-    <editor active="true" />
+    <frame x="65" y="24" width="1615" height="1026" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -554,19 +268,19 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21671827" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924336" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -590,21 +304,223 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="uml://GemDependency/#Bitcasa">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>GemDependency</ID>
+          <OriginalElement>#Bitcasa</OriginalElement>
+          <nodes>
+            <node x="478.49999999999994" y="164.0">celluloid</node>
+            <node x="1293.75" y="164.0">coderay</node>
+            <node x="482.99999999999994" y="0.0">hitimes</node>
+            <node x="1348.1859737484733" y="430.0">httpclient</node>
+            <node x="12.5" y="246.0">rspec-core</node>
+            <node x="1295.25" y="522.0">#Bitcasa</node>
+            <node x="497.28124999999994" y="430.0">guard-rspec</node>
+            <node x="98.71733821733824" y="164.0">rspec-support</node>
+            <node x="0.0" y="348.0">terminal-notifier</node>
+            <node x="1405.75" y="348.0">pry-remote</node>
+            <node x="169.0" y="348.0">rspec</node>
+            <node x="490.7600732600734" y="246.0">formatador</node>
+            <node x="881.125" y="348.0">guard</node>
+            <node x="490.28124999999994" y="348.0">guard-compat</node>
+            <node x="1444.0" y="164.0">slop</node>
+            <node x="373.49999999999994" y="164.0">diff-lcs</node>
+            <node x="799.8850732600733" y="430.0">multi_json</node>
+            <node x="624.7600732600733" y="246.0">listen</node>
+            <node x="746.0" y="82.0">ffi</node>
+            <node x="287.5" y="246.0">rspec-expectations</node>
+            <node x="485.99999999999994" y="82.0">timers</node>
+            <node x="932.125" y="246.0">notiffany</node>
+            <node x="1309.6859737484733" y="246.0">pry</node>
+            <node x="143.5" y="246.0">rspec-mocks</node>
+            <node x="1018.75" y="164.0">shellany</node>
+            <node x="82.875" y="430.0">rspec-nc</node>
+            <node x="1049.125" y="246.0">thor</node>
+            <node x="1294.6859737484733" y="348.0">pry-nav</node>
+            <node x="1129.75" y="164.0">method_source</node>
+            <node x="1473.25" y="430.0">bundler</node>
+            <node x="839.5" y="164.0">nenv</node>
+            <node x="593.5" y="164.0">rb-fsevent</node>
+            <node x="801.125" y="246.0">lumberjack</node>
+            <node x="721.5" y="164.0">rb-inotify</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="pry-remote" target="pry">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="#Bitcasa" target="pry-remote">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="rspec-mocks" target="rspec-support">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="listen" target="celluloid">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="celluloid" target="timers">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="rspec-nc" target="rspec">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="#Bitcasa" target="bundler">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="rspec" target="rspec-mocks">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="pry" target="coderay">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="rspec-expectations" target="rspec-support">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="rspec" target="rspec-expectations">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="rspec-expectations" target="diff-lcs">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="guard" target="thor">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="#Bitcasa" target="httpclient">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="rspec" target="rspec-core">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="pry" target="slop">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="#Bitcasa" target="guard-rspec">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="guard-rspec" target="guard">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="guard-rspec" target="rspec">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="guard" target="listen">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="notiffany" target="shellany">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="guard" target="formatador">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="guard" target="nenv">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="listen" target="rb-inotify">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="#Bitcasa" target="rspec-nc">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="#Bitcasa" target="pry-nav">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="rspec-nc" target="terminal-notifier">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="guard" target="notiffany">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="guard" target="lumberjack">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="guard" target="shellany">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="pry" target="method_source">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="rspec-core" target="rspec-support">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="pry-nav" target="pry">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="rb-inotify" target="ffi">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="timers" target="hitimes">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="guard" target="pry">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="guard-rspec" target="guard-compat">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="listen" target="rb-fsevent">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="#Bitcasa" target="multi_json">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="pry-remote" target="slop">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="notiffany" target="nenv">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.799115603284902" x="1273.1679841897233" y="692.9300395256917" />
+          <SelectedNodes>
+            <node>terminal-notifier</node>
+          </SelectedNodes>
+          <Categories />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Bitcasa.gemspec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="948">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Bitcasa/account_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Bitcasa/client_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="948">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -669,241 +585,171 @@
           <notes />
           <edges>
             <edge source="pry-remote" target="pry">
-              <point x="-28.5" y="-16.0" />
-              <point x="1434.25" y="328.0" />
-              <point x="1356.3526404151403" y="328.0" />
-              <point x="18.666666666666742" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="#Bitcasa" target="pry-remote">
-              <point x="24.85714285714289" y="-16.0" />
-              <point x="1363.607142857143" y="492.0" />
-              <point x="1462.75" y="492.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="rspec-mocks" target="rspec-support">
-              <point x="0.0" y="-16.0" />
-              <point x="205.5" y="226.0" />
-              <point x="165.71733821733824" y="226.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="listen" target="celluloid">
-              <point x="-24.0" y="-16.0" />
-              <point x="636.7600732600733" y="226.0" />
-              <point x="525.0" y="226.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="celluloid" target="timers">
-              <point x="0.0" y="-16.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="rspec-nc" target="rspec">
-              <point x="24.0" y="-16.0" />
-              <point x="154.875" y="405.0" />
-              <point x="187.25" y="405.0" />
-              <point x="-18.25" y="16.0" />
-            </edge>
-            <edge source="rspec" target="rspec-mocks">
-              <point x="0.0" y="-16.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="#Bitcasa" target="bundler">
-              <point x="37.28571428571422" y="-16.0" />
-              <point x="1376.0357142857142" y="502.0" />
-              <point x="1517.75" y="502.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="rspec" target="rspec-mocks">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="pry" target="coderay">
-              <point x="0.0" y="-16.0" />
-              <point x="1337.6859737484733" y="226.0" />
-              <point x="1338.75" y="226.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="rspec-expectations" target="rspec-support">
-              <point x="-42.5" y="-16.0" />
-              <point x="330.0" y="216.0" />
-              <point x="210.38400488400487" y="216.0" />
-              <point x="44.66666666666666" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="rspec" target="rspec-expectations">
-              <point x="24.333333333333343" y="-16.0" />
-              <point x="229.83333333333337" y="328.0" />
-              <point x="372.5" y="328.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="rspec-expectations" target="diff-lcs">
-              <point x="42.5" y="-16.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="guard" target="thor">
-              <point x="14.0625" y="-16.0" />
-              <point x="932.6875" y="308.0" />
-              <point x="1081.125" y="308.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="#Bitcasa" target="httpclient">
-              <point x="12.428571428571331" y="-16.0" />
-              <point x="1351.1785714285713" y="482.0" />
-              <point x="1399.6859737484733" y="482.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="rspec" target="rspec-core">
-              <point x="-24.333333333333314" y="-16.0" />
-              <point x="181.16666666666674" y="328.0" />
-              <point x="68.0" y="328.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="pry" target="slop">
-              <point x="18.666666666666742" y="-16.0" />
-              <point x="1356.3526404151403" y="226.0" />
-              <point x="1459.75" y="226.0" />
-              <point x="-15.75" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="#Bitcasa" target="guard-rspec">
-              <point x="-24.85714285714289" y="-16.0" />
-              <point x="1313.892857142857" y="492.0" />
-              <point x="557.28125" y="492.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="guard-rspec" target="guard">
-              <point x="40.0" y="-16.0" />
-              <point x="597.28125" y="405.0" />
-              <point x="918.625" y="405.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="guard-rspec" target="rspec">
-              <point x="-40.0" y="-16.0" />
-              <point x="517.28125" y="405.0" />
-              <point x="223.75" y="405.0" />
-              <point x="18.25" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="guard" target="listen">
-              <point x="-23.4375" y="-16.0" />
-              <point x="895.1875" y="318.0" />
-              <point x="660.7600732600733" y="318.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="notiffany" target="shellany">
-              <point x="24.25" y="-16.0" />
-              <point x="1004.875" y="226.0" />
-              <point x="1041.5" y="226.0" />
-              <point x="-22.75" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="guard" target="formatador">
-              <point x="-32.8125" y="-16.0" />
-              <point x="885.8125" y="328.0" />
-              <point x="547.7600732600733" y="328.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="guard" target="nenv">
-              <point x="-14.0625" y="-16.0" />
-              <point x="904.5625" y="308.0" />
-              <point x="790.625" y="308.0" />
-              <point x="790.625" y="226.0" />
-              <point x="856.5" y="226.0" />
-              <point x="-17.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="listen" target="rb-inotify">
-              <point x="24.0" y="-16.0" />
-              <point x="684.7600732600733" y="226.0" />
-              <point x="770.5" y="226.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="#Bitcasa" target="rspec-nc">
-              <point x="-37.28571428571422" y="-16.0" />
-              <point x="1301.4642857142858" y="502.0" />
-              <point x="130.875" y="502.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="#Bitcasa" target="pry-nav">
-              <point x="0.0" y="-16.0" />
-              <point x="1338.75" y="502.0" />
-              <point x="1337.6859737484733" y="502.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="rspec-nc" target="terminal-notifier">
-              <point x="-24.0" y="-16.0" />
-              <point x="106.875" y="405.0" />
-              <point x="74.5" y="405.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="guard" target="notiffany">
-              <point x="4.6875" y="-16.0" />
-              <point x="923.3125" y="298.0" />
-              <point x="980.625" y="298.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="guard" target="lumberjack">
-              <point x="-4.6875" y="-16.0" />
-              <point x="913.9375" y="298.0" />
-              <point x="856.625" y="298.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="guard" target="shellany">
-              <point x="23.4375" y="-16.0" />
-              <point x="942.0625" y="318.0" />
-              <point x="1123.625" y="318.0" />
-              <point x="1123.625" y="226.0" />
-              <point x="1087.0" y="226.0" />
-              <point x="22.75" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="pry" target="method_source">
-              <point x="-18.666666666666742" y="-16.0" />
-              <point x="1319.0193070818068" y="226.0" />
-              <point x="1201.75" y="226.0" />
-              <point x="0.0" y="16.0" />
-            </edge>
-            <edge source="rb-inotify" target="ffi">
-              <point x="0.0" y="-16.0" />
-              <point x="0.0" y="16.0" />
-            </edge>
-            <edge source="pry-nav" target="pry">
-              <point x="0.0" y="-16.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="rspec-core" target="rspec-support">
-              <point x="0.0" y="-16.0" />
-              <point x="68.0" y="226.0" />
-              <point x="121.05067155067161" y="226.0" />
-              <point x="-44.66666666666666" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="pry-nav" target="pry">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="rb-inotify" target="ffi">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="timers" target="hitimes">
-              <point x="0.0" y="-16.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="guard" target="pry">
-              <point x="32.8125" y="-16.0" />
-              <point x="951.4375" y="328.0" />
-              <point x="1319.0193070818068" y="328.0" />
-              <point x="-18.666666666666742" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="guard-rspec" target="guard-compat">
-              <point x="0.0" y="-16.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="listen" target="rb-fsevent">
-              <point x="0.0" y="-16.0" />
-              <point x="660.7600732600733" y="226.0" />
-              <point x="647.5" y="226.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="#Bitcasa" target="multi_json">
-              <point x="-12.428571428571331" y="-16.0" />
-              <point x="1326.3214285714287" y="482.0" />
-              <point x="851.8850732600733" y="482.0" />
-              <point x="0.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="pry-remote" target="slop">
-              <point x="28.5" y="-16.0" />
-              <point x="15.75" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="notiffany" target="nenv">
-              <point x="-24.25" y="-16.0" />
-              <point x="956.375" y="226.0" />
-              <point x="890.5" y="226.0" />
-              <point x="17.0" y="16.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
           </edges>
-          <settings layout="Hierarchic Group" zoom="0.799115603284902" x="781.5" y="417.2620553359684" />
+          <settings layout="Hierarchic Group" zoom="0.799115603284902" x="1273.1679841897233" y="692.9300395256917" />
           <SelectedNodes>
             <node>terminal-notifier</node>
           </SelectedNodes>
