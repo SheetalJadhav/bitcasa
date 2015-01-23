@@ -1,0 +1,8 @@
+source 'https://rubygems.org'
+
+<<<<<<< HEAD
+# Specify your gem's dependencies in bitcasa.gemspec
+=======
+# Specify your gem's dependencies in Bitcasa.gemspec
+>>>>>>> a226f6e377c5450360508b0e77f663a7142d006a
+gemspec

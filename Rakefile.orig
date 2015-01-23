@@ -1,0 +1,15 @@
+require "bundler/gem_tasks"
+<<<<<<< HEAD
+
+=======
+require "rspec/core/rake_task"
+require 'bundler/gem_tasks'
+
+# Default directory to look in is `/specs`
+# Run with `rake spec`
+RSpec::Core::RakeTask.new(:spec) do |task|
+  task.rspec_opts = ['--color', '--format', 'nested']
+end
+
+task :default => :spec
+>>>>>>> a226f6e377c5450360508b0e77f663a7142d006a
