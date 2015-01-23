@@ -23,4 +23,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "httpclient"
   spec.add_development_dependency "multi_json"
+  spec.rdoc_options << '--title' << 'Rake -- Ruby Make' <<'--main' << 'README' <<'--line-numbers'
 end
