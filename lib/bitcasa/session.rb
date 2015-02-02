@@ -1,12 +1,13 @@
-require_relative './client.rb'
-require_relative './account.rb'
-require_relative './user.rb'
+require_relative 'client'
+require_relative 'account'
+require_relative 'user'
+require_relative 'filesystem'
 
 module Bitcasa
 	# Establishes a session with the API server on behalf of an authenticated end-user
 	class Session
 
-		attr_accessor :clientid, :secret, :host
+		attr_accessor :clientid, :secret, :host, :admin_credentials
 		attr_reader :client
 
 		# Initialize Session instance
@@ -18,21 +19,35 @@ module Bitcasa
 			@secret = secret
 			@host = host
 			@client = Client.new(clientid, secret, host)
+			@admin_credentials = {}
 		end
-
-		# Attempts to log into the end-user's filesystem, linking this session to an account
+	
+		# Set admin [PAID	Account] credentials
+		# @param params Hash containing credentials
+		#		should be {clientid: nil, secret: nil, host: "access.bitcasa.com"} format
+		def admin_credentials=(params={})
+			@admin_credentials = {clientid: nil, secret: nil, host: "access.bitcasa.com"}.merge(params)
+		end
+		
+		# Get Admin credentials
+		# @returns [String] format clientid[clientid] secret[secret] host[host]
+		def admin_credentials
+			@admin_credentials.map{|k, v| "#{k}['#{v}']"}.join(' ')
+		end
+		
+	# Attempts to log into the end-user's filesystem, linking this session to an account
 		# @param username [String] end user's username
 		# @param password [String] end user's password
 		# @return [Boolean] true if successful, maintains access token in Client instance
-		# @raise Bitcasa::Client::Error, Bitcasa::Client::InvalidArgumentError
+		# @raise Client::Errors::ServiceError, Client::Errors::ArgumentError
 		def authenticate(username, password)
 			@client.authenticate(username, password)
 		end
 
 		# Tests to see if the current session is linked to the API server and can make requests	
 		# return [Boolean] true/false
-		def is_linked
-			@client.is_linked
+		def is_linked?
+			@client.is_linked?
 		end
 
 		# Discards current authentication, authenticate again in-order to reuse this session
@@ -54,11 +69,14 @@ module Bitcasa
 		# @option first_name [String] first name of end user
 		# @option last_name [String] last name of end user
 		# @return [Bitcasa::Account] object
-		# @raise Bitcasa::Client::Error, Bitcasa::Client::InvalidArgumentError
+		# @raise Client::Errors::ServiceError, Client::Errors::ArgumentError
 		def create_account(username, password, email: nil, 
 				first_name: nil, last_name: nil)
-			response = @client.create_account(username, password, email: email, 
-					first_name: first_name, last_name: last_name)
+			client = Client.new(@admin_credentials[:clientid], 
+					@admin_credentials[:secret], @admin_credentials[:host])
+				
+			response = client.create_account(username, password, email: email, 
+				first_name: first_name, last_name: last_name)
 			Account.new(@client, **response)
 		end
 		
@@ -79,7 +97,7 @@ module Bitcasa
 		# @option start [Fixnum] version number to start listing historical actions from, default -10. It can be negative in order to get most recent actions.
 		# @option stop [Fixnum] version number to stop listing historical actions from (non-inclusive)
 		# @return array of hashes containing history items
-		# @raise Bitcasa::Client::Error
+		# @raise Client::Errors::ServiceError
 		def action_history(start: -10, stop: 0)
 			@client.list_history
 		end

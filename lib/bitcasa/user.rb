@@ -1,4 +1,5 @@
-require_relative './client.rb'
+require_relative 'client'
+
 # Bitcasa module which maintains User class for profile information
 module Bitcasa
 	# User class maintains user profile information
@@ -13,7 +14,7 @@ module Bitcasa
 		# @param client [Bitcasa::Client] bitcasa restful api object
 		# @option params [Hash|keyword args]
 		def initialize(client, **params)
-			raise Bitcasa::Client::InvalidArgumentError, 
+			raise Client::Errors::ArgumentError, 
 				"invalid client, input type must be Bitcasa::Client" unless client.is_a?(Bitcasa::Client)
 			@client = client
 						

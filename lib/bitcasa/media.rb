@@ -1,4 +1,4 @@
-require_relative './file.rb'
+require_relative 'file.rb'
 module Bitcasa
 		
 	# Photo class initializes the type of the file

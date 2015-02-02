@@ -1,16 +1,14 @@
-require "bitcasa/version"
-require_relative './bitcasa/client.rb'
-require_relative './bitcasa/user.rb'
-require_relative './bitcasa/account.rb'
-require_relative './bitcasa/session.rb'
-require_relative './bitcasa/item.rb'
-require_relative './bitcasa/filesystem.rb'
-require_relative './bitcasa/file.rb'
-require_relative './bitcasa/container.rb'
-require_relative './bitcasa/folder.rb'
-require_relative './bitcasa/share.rb'
-require_relative './bitcasa/media.rb'
+require_relative 'bitcasa/client'
+require_relative 'bitcasa/user'
+require_relative 'bitcasa/account'
+require_relative 'bitcasa/session'
+require_relative 'bitcasa/item'
+require_relative 'bitcasa/filesystem'
+require_relative 'bitcasa/file'
+require_relative 'bitcasa/container'
+require_relative 'bitcasa/folder'
+require_relative 'bitcasa/share'
+require_relative 'bitcasa/media'
 
 module Bitcasa
-  # Your code goes here...
 end
