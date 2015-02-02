@@ -10,5 +10,7 @@ require_relative 'bitcasa/folder'
 require_relative 'bitcasa/share'
 require_relative 'bitcasa/media'
 
+# Bitcasa module provides api access to Bitcasa Cloudfs Service 
+#		and filesystem objects to manage end user's files, folders and shares.
 module Bitcasa
 end

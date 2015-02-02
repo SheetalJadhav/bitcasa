@@ -4,6 +4,8 @@ require_relative 'filesystem_common'
 
 module Bitcasa
 	# Bitcasa Container class is base class for folder class
+	#
+	# @author Mrinal Dhillon
 	class Container < Item
 		# List contents of this container
 		#

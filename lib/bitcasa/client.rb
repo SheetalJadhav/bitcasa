@@ -22,7 +22,7 @@ module Bitcasa
 	#		client.ping
 	#	@example Upload file
 	#		::File.open("/tmp/xyz", "r") do |file|
-	#			client.upload("pathid", file, 
+	#			client.upload(url, file, 
 	#					name: 'somename', exists: 'FAIL')
 	#		end
 	#	@example Download file
@@ -32,8 +32,8 @@ module Bitcasa
 	#		Streaming download i.e. chunks are synchronously returned as soon as available
 	#			preferable for large files download:
 	#
-	#		client.download("pathid", startbyte: 0) do |chunk| 
-	#			file.write(chunk)
+	#		::File.open(local_filepath, 'wb') do |file|
+	#				client.download(url) { |buffer| file.write(buffer) }
 	#		end
 	#	
 	# @optimize Support async requests, 
@@ -52,7 +52,7 @@ module Bitcasa
 		# @optimize provide option to load credentials 
 		#		and http connection related configuration from config file, env
 		def initialize(clientid, secret, host)
-			raise Errors::ArgumentError, 
+			fail Errors::ArgumentError, 
 				"Invalid argument provided" if ( Utils.is_blank?(clientid) || 
 						Utils.is_blank?(secret) || Utils.is_blank?(host) )
 			
@@ -91,8 +91,10 @@ module Bitcasa
 		# @note this will disconnect all keep alive connections and internal sessions
 		# @return [true]
 		def unlink
-			@access_token = nil
-			@http_connection.unlink
+			if @access_token
+				@access_token = ''
+				@http_connection.unlink
+			end
 			true
 		end
 		
@@ -459,9 +461,9 @@ module Bitcasa
 		#		if the version on the client does not match the version on the server
 		#
 		# @option properties [String] :name (nil) new name
-		# @option properties [String, Fixnum] :date_created (nil) timestamp
-		# @option properties [String, Fixnum] :date_meta_last_modified (nil) timestamp
-		# @option properties [String, Fixnum] :date_content_last_modified (nil) timestamp
+		# @option properties [Fixnum] :date_created (nil) timestamp
+		# @option properties [Fixnum] :date_meta_last_modified (nil) timestamp
+		# @option properties [Fixnum] :date_content_last_modified (nil) timestamp
 		# @option properties [Hash] :application_data({}) will be merged 
 		#		with existing application data
 		#
@@ -480,9 +482,9 @@ module Bitcasa
 		#		if the version on the client does not match the version on the server
 		#
 		# @option properties [String] :name (nil) new name
-		# @option properties [String, Fixnum] :date_created (nil) timestamp
-		# @option properties [String, Fixnum] :date_meta_last_modified (nil) timestamp
-		# @option properties [String, Fixnum] :date_content_last_modified (nil) timestamp
+		# @option properties [Fixnum] :date_created (nil) timestamp
+		# @option properties [Fixnum] :date_meta_last_modified (nil) timestamp
+		# @option properties [Fixnum] :date_content_last_modified (nil) timestamp
 		# @option properties [Hash] :application_data ({}) will be merged 
 		#		with existing application data
 		#
@@ -502,9 +504,9 @@ module Bitcasa
 		#		if the version on the client does not match the version on the server
 		#
 		# @option properties [String] :name (nil) new name
-		# @option properties [String, Fixnum] :date_created (nil) timestamp
-		# @option properties [String, Fixnum] :date_meta_last_modified (nil) timestamp
-		# @option properties [String, Fixnum] :date_content_last_modified (nil) timestamp
+		# @option properties [Fixnum] :date_created (nil) timestamp
+		# @option properties [Fixnum] :date_meta_last_modified (nil) timestamp
+		# @option properties [Fixnum] :date_content_last_modified (nil) timestamp
 		# @option properties [Hash] :application_data ({}) will be merged 
 		#		with existing application data
 		#
@@ -711,7 +713,7 @@ module Bitcasa
 		# @param share_key [String] id of the share
 		# @param path [String] path of item in share to list
 		#
-		# @return <Hash> hashes representing metatdata of each item in share
+		# @return [<Hash>] hashes representing metatdata of each item in share
 		# @raise [Errors::ServiceError, Errors::ArgumentError]
 		def browse_share(share_key, path: nil)
 			fail Errors::ArgumentError, 

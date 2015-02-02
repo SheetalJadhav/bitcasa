@@ -6,14 +6,15 @@ module Bitcasa
 	# File class is aimed to provide native File object like interface 
 	#		to bitcasa cloudfs files
 	#
+	# @author Mrinal Dhillon
 	# @example
-	#		file = session.get_filesystem.root.upload("/tmp/testfile")
+	#		file = session.filesystem.root.upload("/tmp/testfile")
 	#		file.seek(4, IO::SEEK_SET) #=> 4
 	#		file.tell #=> 4
 	#		file.read #=> " is some buffer till end of file"
 	#		file.rewind 
 	#		file.read {|chunk| puts chunk} #=> "this is some buffer till end of file"
-	# 	file.download(/tmp, filename: "new_testfile")
+	# 	file.download("/tmp", filename: "new_testfile")
 	class File < Item
 		
 		# @see Item#initialize
@@ -73,8 +74,8 @@ module Bitcasa
 
 		# Read from file
 		#		
-	 	#	@param bytes [Fixnum] number of bytes to read from current access position, 
-		#		default reads upto end of file
+	 	#	@param bytecount [Fixnum] number of bytes to read from 
+		#		current access position, default reads upto end of file
 		#
 		# @yield [String] chunk data as soon as available, 
 		#		chunksize size may vary each time

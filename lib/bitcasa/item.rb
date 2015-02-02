@@ -6,6 +6,7 @@ module Bitcasa
 	#
 	#	Item is the base class for File, Container whereas Folder is derived from Container
 	#	Provides common apis for files, folders
+	# @author Mrinal Dhillon
 	class Item	
 				
 		# @return [String] the internal id of item that is right most path segment in url
@@ -46,7 +47,7 @@ module Bitcasa
 
 		#	seconds since item was created
 		# @overload date_created
-		#		@return [Timestamp] seconds since item was created
+		#		@return [Timestamp] creation time in seconds since epoch
 		# @overload date_created=(value)
 		# 	@param value [Timestamp]
 		# 	@raise [Client::Errors::InvalidItemError, 
@@ -55,7 +56,7 @@ module Bitcasa
 	
 		#	seconds since metadata of the item was last modified
 		# @overload date_meta_last_modified
-		#		@return [Timestamp] seconds since metadata of the item was last modified
+		#		@return [Timestamp] time in seconds since epoch at metadata was last modified
 		# @overload date_meta_last_modified=(value)
 		# 	@param value [Timestamp]
 		# 	@raise [Client::Errors::InvalidItemError, 
@@ -64,7 +65,7 @@ module Bitcasa
 
 		#	seconds since content of the item was last modified
 		# @overload date_content_last_modified
-		#		@return [Timestamp] seconds since content of the item was last modified
+		#		@return [Timestamp] time in seconds since epoch at content was last modified
 		# @overload date_content_last_modified=(value)
 		# 	@param value [String]
 		# 	@raise [Client::Errors::InvalidItemError, 
@@ -128,7 +129,7 @@ module Bitcasa
 		# @option properties [String] :blocklist_id (nil) applicable to item type file only
 		# @option properties [Fixnum] :size (nil) applicable to item type file only
 		# @option properties [Hash] :application_data ({ }) extra metadata of item
-		# @raise Client::Errors::ArgumentError
+		# @raise [Client::Errors::ArgumentError]
 		def initialize(client, parent: nil, in_trash: false, 
 				in_share: false, **properties)
 			fail Client::Errors::ArgumentError, 
@@ -140,6 +141,7 @@ module Bitcasa
 		end
 		
 		# @see #initialize
+		# @review required properties
 		def set_item_properties(parent: nil, in_trash: false, 
 				in_share: false, **params)
 			# id, type and name are required instance variables
@@ -149,12 +151,14 @@ module Bitcasa
 				fail Client::Errors::ArgumentError, "Provide item type"}
 			@name = params.fetch(:name) {
 				fail Client::Errors::ArgumentError, "Provide item name"}
+
 			@type = "folder" if @type == "root"	
 			@parent_id = params[:parent_id]
 			@date_created = params[:date_created]
 			@date_meta_last_modified = params[:date_meta_last_modified]
 			@date_content_last_modified = params[:date_content_last_modified]
 			@version = params[:version]
+
 			if @type == "file"
 				@is_mirrored = params[:is_mirrored]
 				@mime = params[:mime]
@@ -163,10 +167,12 @@ module Bitcasa
 				@blocklist_id = params[:blocklist_id]
 				@size = params[:size]
 			end
+
 			@application_data = params[:application_data]
 			@in_trash = in_trash
 			@in_share = in_share
 			@exists = true
+
 			set_url(parent)
 			changed_properties_reset
 		end
@@ -265,7 +271,7 @@ module Bitcasa
 		# @param exists [String] ('FAIL', 'OVERWRITE', 'RENAME') 
 		#		action to take in case of a conflict with an existing folder, default 'RENAME'
 		#
-	 	# @return [Item] reference to this item object.
+		# @return [Item] refrence to this item object
 		# @raise [Client::Errors::ServiceError, Client::Errors::ArgumentError, 
 		#		Client::Errors::InvalidItemError, Client::Errors::OperationNotAllowedError]
 		def move_to(destination, name: nil, exists: 'RENAME')
@@ -292,8 +298,7 @@ module Bitcasa
 		# @param name [String] (nil) new name of copied item
 		# @param exists [String] ('FAIL', 'OVERWRITE', 'RENAME') 
 		#		action to take in case of a conflict with an existing folder, default 'RENAME'
-
-	 	# @return [Item] new instance of copied item
+		# @return [Item] new instance of copied item
 		# @raise [Client::Errors::ServiceError, Client::Errors::ArgumentError, 
 		#		Client::Errors::InvalidItemError, Client::Errors::OperationNotAllowedError]
 		def copy_to(destination, name: nil, exists: 'RENAME')
@@ -504,7 +509,8 @@ module Bitcasa
 		#		Client::Errors::InvalidItemError, Client::Errors::OperationNotAllowedError]
 		def save(version_conflict: 'FAIL')
 			FileSystemCommon.validate_item_state(self)
-			
+			return nil if Client::Utils.is_blank?(@changed_properties)
+
 			if @type == "folder"
 				@client.alter_folder_meta(url, @version, 
 						version_conflict: version_conflict, **@changed_properties)
@@ -514,6 +520,7 @@ module Bitcasa
 			end
 			# @review should this item to be updated with returned meta
 			changed_properties_reset 
+			nil
 		end
 
 		# Gets properties in hash format

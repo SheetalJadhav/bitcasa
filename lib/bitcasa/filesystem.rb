@@ -4,38 +4,44 @@ require_relative 'filesystem_common'
 
 module Bitcasa
 	# FileSystem class provides interface to maintain bitcasa user's filesystem
+	#
+	# @author Mrinal Dhillon
 	class FileSystem
-		attr_reader :client, :root
 		
-		# Initalizes instance of Bitcasa::FileSystem
+		# @return [Folder] root folder of user's filesystem
+		# @raise [Client::Errors::ServiceError]
+		attr_reader :root
+		
 		# @param client [Client] bitcasa restful api object
 		# @raise Client::Errors::ArgumentError
 		def initialize(client)
-			raise Client::Errors::ArgumentError, 
+			fail Client::Errors::ArgumentError, 
 				"invalid client, input type must be Client" unless client.is_a?(Client)
 				@client = client
 		end
 
+		# @return [Folder] root folder of user's filesystem
+		# @raise [Client::Errors::ServiceError]
 		def root
-			get_root unless @root
-			@root
+			@root ||= get_root
 		end
 
 		# Get root object of filesystem
 		# @return [Folder] represents root folder of filesystem
 		# @raise Client::Errors::ServiceError
 		def get_root
-			response = @client.get_folder_meta("/")
-			@root = FileSystemCommon.create_item_from_hash(@client, **response)
-			@root	
+				response = @client.get_folder_meta("/")
+				FileSystemCommon.create_item_from_hash(@client, **response)
 		end
 
-		# List contents of an item if it's a Folder object or folder's absolute path
-		# @param item [Folder|String] represent folder to list in end-user's filesystem
-		# @return array of items under folder path, objects in array can be File, Folder, Share objects
-		# @raise Client::Errors::ServiceError, Client::Errors::ArgumentError, NoMethodError
+		# List contents of an folder in user's filesystem
+		#
+		# @param item [Folder, String] folder object or url in end-user's filesystem
+		#
+		# @return [Array<Folder, File>] items under folder path
+		# @raise [Client::Errors::ServiceError, Client::Errors::ArgumentError, 
+		#		Client::Errors::InvalidItemError, Client::Errors::OperationNotAllowedError]
 		def list(item: nil)
-			
 			if (Client::Utils.is_blank?(item) || item.is_a?(String))
 				response = @client.list_folder(path: item, depth: 1)
 				FileSystemCommon.create_items_from_hash_array(response, 
@@ -46,13 +52,21 @@ module Bitcasa
 		end
 
 		#	Move items to destination
-		# @param items [File|Folder] array of items
-		# @param destination [Folder|String] destination folder to move items to
-		# @option exists ["FAIL"|"OVERWRITE"|"RENAME"] action to take in case of a conflict with an existing item in destination folder, default "RENAME"
-		# @return array of moved items
-		# @raise Client::Errors::ServiceError, Client::Errors::ArgumentError
+		#
+		# @param items [Array<File, Folder>] items
+		# @param destination [Folder, String] destination folder or url
+		# @param exists [String] ('FAIL', 'OVERWRITE', 'RENAME') action to take in case 
+		#	of a conflict with an existing item in destination folder, default "RENAME"
+		#
+		# @return [Array<File, Folder>] moved items
+		#	@note item at index in returned array is refrence to same object
+		#		whose properties are updated as an effect of move operation at corresponding 
+		#		index in input array 'items'
+		# @raise [Client::Errors::ServiceError, Client::Errors::ArgumentError, 
+		#		Client::Errors::InvalidItemError, Client::Errors::OperationNotAllowedError]
+		# @see Item#move_to
 		def move(items, destination, exists: 'RENAME')
-			raise Client::Errors::ArgumentError, 
+			fail Client::Errors::ArgumentError, 
 				"Invalid input, expected items" unless items
 
 			response = []
@@ -63,14 +77,21 @@ module Bitcasa
 		end
 
 		#	Copy items to destination
-		# @param items [File|Folder] array of items
-		# @param destination [Folder|String] destination folder to copy items to
-		# @option exists ["FAIL"|"OVERWRITE"|"RENAME"] action to take in case of a conflict with an existing item in destination folder, default "RENAME"
-		# @return array of copied items
-		# @raise Client::Errors::ServiceError, Client::Errors::ArgumentError
+		#
+		# @param items [Array<File, Folder>] items
+		# @param destination [Folder, String] destination folder or url
+		# @param exists [String] ('FAIL', 'OVERWRITE', 'RENAME') action to take in case 
+		#	of a conflict with an existing item in destination folder, default 'RENAME'
+		#
+		# @return [Array<File, Folder>] copied items
+		# @raise [Client::Errors::ServiceError, Client::Errors::ArgumentError, 
+		#		Client::Errors::InvalidItemError, Client::Errors::OperationNotAllowedError]
+		#	@note item at index in returned array is refrence to same object
+		#		at corresponding index in input array 'items'
+		# @see Item#copy_to
 		def copy(items, destination, exists: 'RENAME')
-			raise Client::Errors::ArgumentError, 
-				"Invalid input, expected items" unless items
+			fail Client::Errors::ArgumentError, 
+				"Invalid input, expected array of items" unless items
 			
 			response = []
 			Array(items).each do |item|
@@ -79,15 +100,26 @@ module Bitcasa
 			response
 		end
 
-		#	Delete items
-		# @param items [File|Folder] array of items
-		# @option commit [boolean] default false, set true to remove files/folders permanently, else will be moved to trash  
-		# @option force [boolean] default false, set true to delete non-empty folders 
-		# @return array of responses i.e. true/false
-		# @raise Client::Errors::ServiceError, Client::Errors::ArgumentError
-		def delete(items, force: true, commit: false)
-			raise Client::Errors::ArgumentError, 
-				"Invalid input, blank or empty, expected items" unless items
+		#	Delete items from user's filesystem
+		#
+		# @param items [Array<File, Folder>] items
+		# @param force [Boolean] (false) set true to delete non-empty folder		
+		# @param commit [Boolean] (false) set true to remove item permanently, 
+		#		else deleted items are moved to trash
+		#	
+		# @return [Array<Boolean>]
+		# @raise [Client::Errors::ServiceError, Client::Errors::ArgumentError, 
+		#		Client::Errors::InvalidItemError, Client::Errors::OperationNotAllowedError]
+		#
+		#	@note item at index in returned array is refrence to same object
+		#		whose properties are updated as an effect of delete operation at 
+		#		corresponding index in input array 'items'
+		# @see Item#delete Delete an item
+		# @see #restore Restore items
+		# @see Item#restore Restore an item
+		def delete(items, force: false, commit: false)
+			fail Client::Errors::ArgumentError, 
+				"Invalid input, expected array of items" unless items
 
 			responses = []
 			Array(items).each do |item|
@@ -97,11 +129,16 @@ module Bitcasa
 		end
 
 		#	Restore an item from trash
-		# @param item [File|Folder|String] item
-		# @param destination_url [String] rescue or recreate(default root) path depending on exists option
-		# @param exists ["FAIL"|"RESCUE"] action to take if the recovery operation encounters issues, default 'FAIL'
-		# @return [File|Folder] item object
-		# @raise Client::Errors::ServiceError, Client::Errors::ArgumentError
+		#
+		# @param item [File, Folder, String] item or url
+		# @param destination_url [String] rescue or recreate(default root) 
+		#		path depending on exists option
+		# @param exists [String] ('FAIL', 'RESCUE', RECREATE) action to take 
+		#		if the recovery operation encounters issues, default 'FAIL'
+		#
+		# @return [File, Folder] item object
+		# @raise [Client::Errors::ServiceError, Client::Errors::ArgumentError, 
+		#		Client::Errors::InvalidItemError, Client::Errors::OperationNotAllowedError]
 		def restore_item(item, destination_url, exists)
 			if item.is_a?(String)
 				response = @client.browse_trash(path: item)
@@ -112,17 +149,27 @@ module Bitcasa
 			
 			item.restore(destination: destination_url, 
 					exists: exists, raise_exception: true)
-			item
 		end
 
 		#	Restore items from trash
-		# @param items [File|Folder|String] array of items
-		# @option destination [Folder|String] rescue (default root) or recreate(named path) path depending on exists option to place item into if the original path does not exist
-		# @option exists ["FAIL"|"RESCUE"|"RECREATE"] action to take if the recovery operation encounters issues, default 'FAIL'
-		# @return array of restored items
-		# @raise Client::Errors::ServiceError, Client::Errors::ArgumentError
+		#
+		# @param items [File, Folder, String] items
+		# @param destination [Folder, String] ('RESCUE' (default root), 
+		#		RECREATE(named path)) path depending on exists option to place item into 
+		#		if the original path does not exist.
+		# @param exists [String] ('FAIL', 'RESCUE', 'RECREATE') 
+		#		action to take if the recovery operation encounters issues, default 'FAIL'
+		# @return [Array<File, Folder>] restored items
+		#	@note unless item is url at corresponding index in input array 'items', 
+		#		the item at index in returned array is refrence to same object
+		#		whose properties are updated as an effect of restore operation at 
+		#		corresponding index in input array 'items'
+		#
+		# @raise [Client::Errors::ServiceError, Client::Errors::ArgumentError, 
+		#		Client::Errors::InvalidItemError, Client::Errors::OperationNotAllowedError]
+		# @see Item#restore
 		def restore(items, destination: nil, exists: 'FAIL')
-			raise Client::Errors::ArgumentError, 
+			fail Client::Errors::ArgumentError, 
 				"Invalid input, expected items" unless items
 
 			FileSystemCommon.validate_item_state(destination)
@@ -135,9 +182,9 @@ module Bitcasa
 			response
 		end
 		
-		# Browse trash
-	 	# @return array of items in trash
-		# @raise Client::Errors::ServiceError
+		# @return [Array<File, Folder>] items in trash
+		# @raise [Client::Errors::ServiceError, 
+		#		Client::Errors::InvalidItemError, Client::Errors::OperationNotAllowedError]
 		def browse_trash
 			response = @client.browse_trash
 			FileSystemCommon.create_items_from_hash_array(response.fetch(:items), 
@@ -145,11 +192,13 @@ module Bitcasa
 		end
 	
 		# List versions of file
-		# @param item [File|String] file
-		# @return array of items
-		# @raise Client::Errors::ServiceError, Client::Errors::ArgumentError
+		# @param item [File, String]
+		# @return [Array<File>] versions of file
+		# @raise [Client::Errors::ServiceError, 
+		#		Client::Errors::InvalidItemError, Client::Errors::OperationNotAllowedError]
+		# @see Item#versions
 		def list_file_versions(item)
-			raise Client::Errors::ArgumentError, 
+			fail Client::Errors::ArgumentError, 
 				"Invalid input, expected Item or string path" if Client::Utils.is_blank?(item)
 
 			if item.is_a?(String)
@@ -157,23 +206,23 @@ module Bitcasa
 				FileSystemCommon.create_items_from_hash_array(response, 
 						@client, parent: item)
 			else
-				response = item.versions
+				item.versions
 			end
-			response
 		end
 
 		# List user's shares
-		# @return Share []
-		# @raise Client::Errors::ServiceError
+		# @return [Array<Share>] shares
+		# @raise [Client::Errors::ServiceError]
 		def list_shares
 			response = @client.list_shares
 			FileSystemCommon.create_items_from_hash_array(response, @client)
 		end
 
 		# Create share of paths in user's filesystem
-		# @param items [File|Folder|String []] each path in array represents file/folder
-		# @return Share object
-		# @raise Client::Errors::ServiceError, Client::Errors::ArgumentError
+		# @param items [Array<File, Folder, String>] file, folder or url
+		# @return [Share] instance
+		# @raise [Client::Errors::ServiceError, Client::Errors::ArgumentError, 
+		#		Client::Errors::InvalidItemError, Client::Errors::OperationNotAllowedError]
 		def create_share(items)
 			raise Client::Errors::ArgumentError, 
 				"Invalid input, expected items or paths" if Client::Utils.is_blank?(items)
@@ -188,6 +237,6 @@ module Bitcasa
 			FileSystemCommon.create_item_from_hash(@client, **response)
 		end	
 
-		private :restore_item
+		private :restore_item, :get_root
 	end
 end

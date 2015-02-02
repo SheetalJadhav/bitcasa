@@ -5,8 +5,11 @@ require_relative 'filesystem_common'
 module Bitcasa
 	# Represents a folder in the user's filesystem that can contain files and other folders.
 	#
+	#	@author Mrinal Dhillon
 	#	@example
-	#		folder = session.get_filesystem.root.create_folder("testfolder")
+	#		folder = session.filesystem.root.create_folder("testfolder")
+	#		folder.name = "newname"
+	#		folder.save
 	#		file = folder.upload("/tmp/testfile")
 	#		folder.list		#=> Array<File, Folder>
 	class Folder < Container

@@ -1,24 +1,75 @@
 require_relative 'client'
 
-# Bitcasa module which maintains User class for profile information
 module Bitcasa
 	# User class maintains user profile information
+	#
+	# @author Mrinal Dhillon
 	class User
-
-		attr_reader :username, :created_at, :first_name, :last_name, 
-			:account_id, :locale, :account_state, :storage, :account_plan, 
-			:email, :session, :last_login, :id
-		attr_reader :client		
+		# @return [String] end user's username
+		attr_reader :username
 		
-		# Initialize User object
-		# @param client [Bitcasa::Client] bitcasa restful api object
-		# @option params [Hash|keyword args]
-		def initialize(client, **params)
-			raise Client::Errors::ArgumentError, 
-				"invalid client, input type must be Bitcasa::Client" unless client.is_a?(Bitcasa::Client)
+		# @return [Fixnum] creation time in milliseconds since epoch.
+		attr_reader :created_at
+		
+		# @return [String] first name of user
+		attr_reader :first_name
+		
+		# @return [String] last name of user
+		attr_reader :last_name
+
+		# @return [String] account id
+		attr_reader :account_id
+		
+		# @return [String] locale
+		attr_reader :locale
+		
+		# @return [Hash] user account state
+		attr_reader :account_state
+		
+		# @return [Hash] storage details
+		attr_reader :storage
+		
+		# @return [Hash] account plan
+		attr_reader :account_plan
+
+		# @return [String] eamil id of user
+		attr_reader :email
+
+		# @return [Hash] session details
+		attr_reader :session
+		
+		# @return [Fixnum] last login time in milliseconds since epoch
+		attr_reader :last_login
+		
+		# @return [Fixnum] internal id of user
+		attr_reader :id
+		
+		# @param client [Client] bitcasa restful api object
+		# @param [Hash] properties metadata of user
+		# @option [String] :username
+		# @option [Fixnum] :created_at in milliseconds since epoch
+		# @option [String] :first_name
+		# @option [String] :last_name
+		# @option [String] :account_id
+		# @option [String] :local
+		# @option [String] :account_state
+		# @option [String] :email
+		# @option [Hash] :session
+		# @option [Fixnum] :last_login in milliseconds since epoch
+		# @option [String] :id
+		def initialize(client, **properties)
+			fail Client::Errors::ArgumentError, 
+				"invalid client type #{client.class}, expected Bitcasa::Client" unless client.is_a?(Bitcasa::Client)
+
 			@client = client
-						
-			@username = params[:username]
+			set_user_info(**properties)
+		end
+
+		# @see #initialize
+		# @review required parameters
+		def set_user_info(**params)
+			@username = params.fetch(:username) { fail Client::Errors::ArgumentError, 
+				"Missing required username" }
 			@created_at = params[:created_at]
 			@first_name = params[:first_name]
 			@last_name = params[:last_name]
@@ -31,16 +82,17 @@ module Bitcasa
 			@session = params[:session]
 			@last_login = params[:last_login]
 			@id = params[:id]
+			nil
 		end
 
 		# Get current storage used by this user
-		# @return Fixnum usage in bytes
+		# @return [Fixnum] usage in bytes
 		def get_usage
 			@storage.fetch(:usage).to_i
 		end
 	
 		# Get storage limit of this user
-		# @return Fixnum limit in bytes
+		# @return [Fixnum] limit in bytes
 		def get_quota
 			@storage.fetch(:limit).to_i
 		end
@@ -51,5 +103,12 @@ module Bitcasa
 			@account_plan.map{|k, v| "#{k}['#{v}']"}.join(' ')
 		end
 
+		# Refresh this user's metadata from server
+		def refresh
+			response = @client.get_profile
+			set_user_info(**response)
+		end
+
+		private :set_user_info
 	end
 end

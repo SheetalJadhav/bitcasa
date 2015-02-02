@@ -3,6 +3,8 @@ require_relative 'utils'
 module Bitcasa
 	class Client
 		# Defines exceptional behavior.
+		# All exceptions raised by Bitcasa SDK can be caught by 
+		#		rescue Bitcasa::Client::Errors::Error
 		module Errors
 		
 			# Maps exception classes to error codes returned by Bitcasa CloudFS Service
@@ -86,14 +88,16 @@ module Bitcasa
 			}
 	
 			# All errors can be rescue by Errors::Error
+			#	Top most error class, all bitcasa exceptions can be rescued by this class
 			class Error < StandardError; end
 
 			class UnExpectedResponse < Error; end
 			class InvalidItemError < Error; end	
+			class InvalidShareError < Error; end	
 			class OperationNotAllowedError < Error; end	
 			class ArgumentError < Error; end
 			class SessionNotLinked < Error; end
-
+			
 			# All HTTP errors can be rescued by Errors::HttpError
 			class HttpError < Error; end
 

@@ -65,7 +65,7 @@ module Bitcasa
 		end
 
 		# Get item url
-		# @param folder [File, Folder, String]
+		# @param item [File, Folder, String]
 		# @return [String] url of item
 		# @raise [Client::Errors::ArgumentError]
 		def get_item_url(item)
@@ -77,7 +77,7 @@ module Bitcasa
 		end
 
 		# Get item name
-		# @param folder [File, Folder, String]
+		# @param item [File, Folder, String]
 		# @return [String] name of item
 		# @raise [Client::Errors::ArgumentError]
 		def get_item_name(item)
@@ -105,7 +105,21 @@ module Bitcasa
 			fail Client::Errors::OperationNotAllowedError, 
 				"Operation not allowed as item is in share" if (in_share && item.in_share?)
 		end
-	
+
+		# Validate share's current state for operations
+		# @param share [Share] share instance to validate
+		# @option exists [Boolean] set false to avoid check if share exists
+		# @raise [Client::Errors::InvalidShareError, 
+		#		Client::Errors::ArgumentError]
+		def validate_share_state(share, exists: true) 
+			require_relative 'share'
+			fail Client::Errors::ArgumentError, 
+				"Invalid object of type #{share.class}, expected Share" unless share.kind_of?(Share)
+			fail Client::Errors::InvalidShareError, 
+				"Operation not allowed as share does not exist anymore" if (exists && share.exists? == false)
+		end
+
+
 		# Fetches properties of named path by recursively listing each member 
 		#			starting root with depth 1 and filter=name=path_member
 		# @param client [Client] restful client instance
