@@ -20,4 +20,11 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "httpclient"
+  spec.add_development_dependency "multi_json"
+  spec.add_development_dependency "factory_girl"
+  spec.add_development_dependency "rspec-kickstarter"
+  spec.add_development_dependency "simplecov"
+  spec.add_development_dependency "simplecov-rcov"
 end
