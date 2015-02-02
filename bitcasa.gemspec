@@ -13,8 +13,9 @@ Gem::Specification.new do |spec|
   spec.homepage      = ""
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0")
+  spec.files         = Dir['lib/**/*', 'bin/*', 'test/**/*', 'extra/**/*','Rakefile', '.yardopts'] + readmes
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.has_rdoc      = false
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
@@ -23,5 +24,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "httpclient"
   spec.add_development_dependency "multi_json"
-  spec.rdoc_options << '--title' << 'Rake -- Ruby Make' <<'--main' << 'README' <<'--line-numbers'
 end
