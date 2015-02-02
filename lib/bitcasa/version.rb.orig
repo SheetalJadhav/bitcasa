@@ -1,0 +1,7 @@
+module Bitcasa
+<<<<<<< HEAD
+  VERSION = "0.0.8"
+=======
+  VERSION = "0.0.3"
+>>>>>>> b118495b3cbae1e2e704f93fb88e7c3010df51a4
+end
