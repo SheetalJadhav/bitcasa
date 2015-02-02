@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = ""
   spec.license       = "MIT"
 
-  spec.files         = Dir['lib/**/*', 'bin/*', 'test/**/*', 'extra/**/*','Rakefile', '.yardopts'] + readmes
+  spec.files         = Dir['lib/**/*', 'bin/*', 'test/**/*', 'extra/**/*','Rakefile', '.yardopts']
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.has_rdoc      = false
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
