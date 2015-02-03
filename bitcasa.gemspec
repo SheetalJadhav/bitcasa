@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["sheetal.jadhav@izeltech.com"]
   spec.summary       = %q{Bitcasa}
   spec.description   = %q{Bitcasa}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/SheetalJadhav/bitcasa.git"
   spec.license       = "MIT"
 
   spec.files         = Dir['lib/**/*', 'bin/*', 'test/**/*', 'extra/**/*','Rakefile', '.yardopts']
